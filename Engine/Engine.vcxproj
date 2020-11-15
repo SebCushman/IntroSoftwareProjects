@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1ac97091-b1db-4fbf-a9dd-f3e8464f08ca}</ProjectGuid>
+    <ProjectGuid>{78FD3C6E-76A6-4F7E-9749-2F2E2519EDD5}</ProjectGuid>
     <RootNamespace>Engine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -142,7 +142,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;fmod_vc.lib;box2d.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;box2d.lib;fmod_vc.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Middleware\SDL2-2.0.12\lib\x64;$(SolutionDir)Middleware\Box2D\lib;$(SolutionDir)Middleware\fmod\api\core\lib\x64</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -166,7 +166,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;fmod_vc.lib;box2d.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;box2d.lib;fmod_vc.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Middleware\SDL2-2.0.12\lib\x64;$(SolutionDir)Middleware\Box2D\lib;$(SolutionDir)Middleware\fmod\api\core\lib\x64</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>

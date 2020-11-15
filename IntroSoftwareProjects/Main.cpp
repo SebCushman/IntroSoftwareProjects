@@ -1,20 +1,72 @@
-// IntroSoftwareProjects.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include "pch.h"
+#include "Graphics/Texture.h"
+#include "Objects/GameObject.h"
+#include "Components/PlayerComponent.h"
+#include "Components/EnemyComponent.h"
+#include "Core/Json.h"
+#include "Core/EventManager.h"
+#include "Objects/ObjectFactory.h"
+#include "Objects/Scene.h"
+#include "TileMap.h"
 
-#include <iostream>
+nc::Engine engine;
+nc::Scene scene;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+void OnPlayerDead(const nc::Event& event) {
+    int* pdata = static_cast<int*>(event.data);
+    int score = *pdata;
+
+    std::cout << "Player Dead: " << score << std::endl;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+int main(int, char**) {   
+    engine.Startup();
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    nc::ObjectFactory::Instance().Initialize();
+    nc::ObjectFactory::Instance().Register("PlayerComponent", new nc::Creator<nc::PlayerComponent, nc::Object>);
+    nc::ObjectFactory::Instance().Register("EnemyComponent", new nc::Creator<nc::EnemyComponent, nc::Object>);
+
+    nc::EventManager::Instance().Subscribe("PlayerDead", &OnPlayerDead);
+
+    rapidjson::Document document;
+    nc::json::Load("scene.txt", document);
+    scene.Create(&engine);
+    scene.Read(document);
+
+    nc::json::Load("tileMap.txt", document);
+    nc::TileMap tileMap;
+    tileMap.Read(document);
+    tileMap.Create(&scene);
+
+    SDL_Event event;
+    bool quit = false;
+    while (!quit) {
+        SDL_PollEvent(&event);
+        switch (event.type) {
+        case SDL_QUIT:
+            quit = true;
+            break;
+        }
+
+        //update
+        engine.Update();
+        scene.Update();
+
+        if (engine.GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_ESCAPE) == nc::InputSystem::eButtonState::PRESSED) {
+            quit = true;
+        }
+        
+        engine.GetSystem<nc::Renderer>()->BeginFrame();
+
+        scene.Draw();
+
+        engine.GetSystem<nc::Renderer>()->EndFrame();
+    }
+
+    engine.Shutdown();
+    scene.Destroy();
+    IMG_Quit();
+    SDL_Quit();
+
+    return 0;
+}
