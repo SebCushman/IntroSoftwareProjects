@@ -63,8 +63,8 @@ int main(int, char**) {
         engine.GetSystem<nc::Renderer>()->EndFrame();
     }
 
-    engine.Shutdown();
     scene.Destroy();
+    engine.Shutdown();
     IMG_Quit();
     SDL_Quit();
 
