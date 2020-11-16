@@ -1,6 +1,6 @@
 /*==============================================================================
 Granular Synthesis Example
-Copyright (c), Firelight Technologies Pty, Ltd 2004-2020.
+Copyright (c), Firelight Technologies Pty, Ltd 2004-2019.
 
 This example shows how you can play a string of sounds together without gaps,
 using the setDelay command, to produce a granular synthesis style truck engine 
@@ -251,7 +251,7 @@ int FMOD_Main()
 
         Common_Draw("==================================================");
         Common_Draw("Granular Synthesis SetDelay Example.");
-        Common_Draw("Copyright (c) Firelight Technologies 2004-2020.");
+        Common_Draw("Copyright (c) Firelight Technologies 2004-2019.");
         Common_Draw("==================================================");
         Common_Draw("");
         Common_Draw("Toggle #define USE_STREAM on/off in code to switch between streams and static samples.");

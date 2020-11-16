@@ -1,6 +1,6 @@
 /*==============================================================================
 Multiple System Example
-Copyright (c), Firelight Technologies Pty, Ltd 2004-2020.
+Copyright (c), Firelight Technologies Pty, Ltd 2004-2019.
 
 This example shows how to play sounds on two different output devices from the
 same application. It creates two FMOD::System objects, selects a different sound
@@ -42,7 +42,7 @@ FMOD_RESULT fetchDriver(FMOD::System *system, int *driver)
 
         Common_Draw("==================================================");
         Common_Draw("Multiple System Example.");
-        Common_Draw("Copyright (c) Firelight Technologies 2004-2020.");
+        Common_Draw("Copyright (c) Firelight Technologies 2004-2019.");
         Common_Draw("==================================================");
         Common_Draw("");
         Common_Draw("Choose a device for system: 0x%p", system);
@@ -162,7 +162,7 @@ int FMOD_Main()
 
             Common_Draw("==================================================");
             Common_Draw("Multiple System Example.");
-            Common_Draw("Copyright (c) Firelight Technologies 2004-2020.");
+            Common_Draw("Copyright (c) Firelight Technologies 2004-2019.");
             Common_Draw("==================================================");
             Common_Draw("");
             Common_Draw("Press %s to play a sound on device A", Common_BtnStr(BTN_ACTION1));

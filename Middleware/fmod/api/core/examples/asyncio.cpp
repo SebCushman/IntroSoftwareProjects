@@ -1,6 +1,6 @@
 /*===============================================================================================
  Async IO Example
- Copyright (c), Firelight Technologies Pty, Ltd 2004-2020.
+ Copyright (c), Firelight Technologies Pty, Ltd 2004-2019.
 
  This example shows how to play a stream and use a custom file handler that defers reads for the
  streaming part.  FMOD will allow the user to return straight away from a file read request and
@@ -323,7 +323,7 @@ int FMOD_Main()
 
         Common_Draw("==================================================");
         Common_Draw("Async IO Example.");
-        Common_Draw("Copyright (c) Firelight Technologies 2004-2020.");
+        Common_Draw("Copyright (c) Firelight Technologies 2004-2019.");
         Common_Draw("==================================================");
         Common_Draw("");
         Common_Draw("Press %s to release playing stream", Common_BtnStr(BTN_ACTION1));

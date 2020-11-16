@@ -1,6 +1,6 @@
 /*==============================================================================
 FMOD Example Framework
-Copyright (c), Firelight Technologies Pty, Ltd 2012-2020.
+Copyright (c), Firelight Technologies Pty, Ltd 2012-2019.
 ==============================================================================*/
 #define WIN32_LEAN_AND_MEAN
 
@@ -230,26 +230,8 @@ const char *Common_MediaPath(const char *fileName)
 {
     char *filePath = (char *)calloc(256, sizeof(char));
 
-    static const char* pathPrefix = nullptr;
-    if (!pathPrefix)
-    {
-        const char *emptyPrefix = "";
-        const char *mediaPrefix = "../media/";
-        FILE *file = fopen(fileName, "r");
-        if (file)
-        {
-            fclose(file);
-            pathPrefix = emptyPrefix;
-        }
-        else
-        {
-            pathPrefix = mediaPrefix;
-        }
-    }
-
-    strcat(filePath, pathPrefix);
+    strcat(filePath, "../media/");
     strcat(filePath, fileName);
-
     gPathList.push_back(filePath);
 
     return filePath;

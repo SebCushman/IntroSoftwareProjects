@@ -1,6 +1,6 @@
 /*==============================================================================
 Object Panning Example
-Copyright (c), Firelight Technologies Pty, Ltd 2015-2020.
+Copyright (c), Firelight Technologies Pty, Ltd 2015-2019.
 
 This example demonstrates the FMOD object panner. The usage is completely
 transparent to the API, the only difference is how the event is authored in the
@@ -70,9 +70,9 @@ int FMOD_Main()
     float spatializer;
     float radioFrequency;
 
-    ERRCHECK( system->loadBankFile(Common_MediaPath("Master.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank) );
+    ERRCHECK( system->loadBankFile(Common_MediaPath("Master Bank.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank) );
     ERRCHECK( system->loadBankFile(Common_MediaPath("Music.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &musicBank) );
-    ERRCHECK( system->loadBankFile(Common_MediaPath("Master.strings.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &stringsBank) );
+    ERRCHECK( system->loadBankFile(Common_MediaPath("Master Bank.strings.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &stringsBank) );
     ERRCHECK( system->getEvent("event:/Music/Radio Station", &spatializerDescription) );
     ERRCHECK( spatializerDescription->createInstance(&spatializerInstance) );
     ERRCHECK( spatializerInstance->start() );
@@ -143,7 +143,7 @@ int FMOD_Main()
 
         Common_Draw("==================================================");
         Common_Draw("Object Panning Example.");
-        Common_Draw("Copyright (c) Firelight Technologies 2015-2020.");
+        Common_Draw("Copyright (c) Firelight Technologies 2015-2019.");
         Common_Draw("==================================================");
         Common_Draw("");
         Common_Draw("Current radio station: %f - %s", radioFrequency, (radioFrequency == 0.00f) ? "Rock" : (radioFrequency == 1.50f) ? "Lo-fi" : "Hip hop");

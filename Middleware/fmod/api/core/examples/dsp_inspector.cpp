@@ -1,6 +1,6 @@
 /*==============================================================================
 Plug-in Inspector Example
-Copyright (c), Firelight Technologies Pty, Ltd 2004-2020.
+Copyright (c), Firelight Technologies Pty, Ltd 2004-2019.
 
 This example shows how to enumerate loaded plug-ins and their parameters.
 ==============================================================================*/
@@ -35,7 +35,7 @@ void drawTitle()
 {
     Common_Draw("==================================================");
     Common_Draw("Plug-in Inspector Example.");
-    Common_Draw("Copyright (c) Firelight Technologies 2004-2020.");
+    Common_Draw("Copyright (c) Firelight Technologies 2004-2019.");
     Common_Draw("==================================================");
     Common_Draw("");
 }
@@ -186,9 +186,6 @@ void drawDSPParameters(ParameterViewerState *state)
                 Common_Draw("%2d: %-15s (Data type: %d)", i, paramdesc->name, paramdesc->datadesc.datatype);
                 break;
             }
-
-            default:
-                break;
         }
     }
 }

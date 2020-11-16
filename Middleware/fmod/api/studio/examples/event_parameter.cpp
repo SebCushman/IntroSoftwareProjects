@@ -1,6 +1,6 @@
 /*==============================================================================
 Event Parameter Example
-Copyright (c), Firelight Technologies Pty, Ltd 2012-2020.
+Copyright (c), Firelight Technologies Pty, Ltd 2012-2019.
 
 This example demonstrates how to control event playback using game parameters.
 ==============================================================================*/
@@ -18,10 +18,10 @@ int FMOD_Main()
     ERRCHECK( system->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, extraDriverData) );
 
     FMOD::Studio::Bank* masterBank = NULL;
-    ERRCHECK( system->loadBankFile(Common_MediaPath("Master.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank) );
+    ERRCHECK( system->loadBankFile(Common_MediaPath("Master Bank.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank) );
 
     FMOD::Studio::Bank* stringsBank = NULL;
-    ERRCHECK( system->loadBankFile(Common_MediaPath("Master.strings.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &stringsBank) );
+    ERRCHECK( system->loadBankFile(Common_MediaPath("Master Bank.strings.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &stringsBank) );
 
     FMOD::Studio::Bank* sfxBank = NULL;
     ERRCHECK( system->loadBankFile(Common_MediaPath("SFX.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &sfxBank) );
@@ -71,7 +71,7 @@ int FMOD_Main()
 
         Common_Draw("==================================================");
         Common_Draw("Event Parameter Example.");
-        Common_Draw("Copyright (c) Firelight Technologies 2012-2020.");
+        Common_Draw("Copyright (c) Firelight Technologies 2012-2019.");
         Common_Draw("==================================================");
         Common_Draw("");
         Common_Draw("Surface Parameter = (user: %1.1f, final: %1.1f)", userValue, finalValue);

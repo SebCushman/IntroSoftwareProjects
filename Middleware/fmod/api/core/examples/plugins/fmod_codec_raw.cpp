@@ -1,6 +1,6 @@
 /*===============================================================================================
 Raw Codec Plugin Example
-Copyright (c), Firelight Technologies Pty, Ltd 2004-2020.
+Copyright (c), Firelight Technologies Pty, Ltd 2004-2019.
 
 This example shows how to create a codec that reads raw PCM data.
 

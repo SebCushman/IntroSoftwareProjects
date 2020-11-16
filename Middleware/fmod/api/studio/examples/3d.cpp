@@ -1,6 +1,6 @@
 /*==============================================================================
 Event 3D Example
-Copyright (c), Firelight Technologies Pty, Ltd 2012-2020.
+Copyright (c), Firelight Technologies Pty, Ltd 2012-2019.
 
 This example demonstrates how to position events in 3D for spatialization.
 ==============================================================================*/
@@ -33,10 +33,10 @@ int FMOD_Main()
     ERRCHECK( system->initialize(1024, FMOD_STUDIO_INIT_NORMAL, FMOD_INIT_NORMAL, extraDriverData) );
 
     FMOD::Studio::Bank* masterBank = NULL;
-    ERRCHECK( system->loadBankFile(Common_MediaPath("Master.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank) );
+    ERRCHECK( system->loadBankFile(Common_MediaPath("Master Bank.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &masterBank) );
 
     FMOD::Studio::Bank* stringsBank = NULL;
-    ERRCHECK( system->loadBankFile(Common_MediaPath("Master.strings.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &stringsBank) );
+    ERRCHECK( system->loadBankFile(Common_MediaPath("Master Bank.strings.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &stringsBank) );
 
     FMOD::Studio::Bank* vehiclesBank = NULL;
     ERRCHECK( system->loadBankFile(Common_MediaPath("Vehicles.bank"), FMOD_STUDIO_LOAD_BANK_NORMAL, &vehiclesBank) );
@@ -95,7 +95,7 @@ int FMOD_Main()
         updateScreenPosition(attributes.position);
         Common_Draw("==================================================");
         Common_Draw("Event 3D Example.");
-        Common_Draw("Copyright (c) Firelight Technologies 2012-2020.");
+        Common_Draw("Copyright (c) Firelight Technologies 2012-2019.");
         Common_Draw("==================================================");
         Common_Draw(screenBuffer);
         Common_Draw("Use the arrow keys (%s, %s, %s, %s) to control the event position", 

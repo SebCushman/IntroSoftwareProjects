@@ -1,6 +1,6 @@
 /* ======================================================================================== */
 /* FMOD Studio API - C header file.                                                         */
-/* Copyright (c), Firelight Technologies Pty, Ltd. 2004-2020.                               */
+/* Copyright (c), Firelight Technologies Pty, Ltd. 2004-2019.                               */
 /*                                                                                          */
 /* Use this header in conjunction with fmod_studio_common.h (which contains all the         */
 /* constants / callbacks) to develop using the C language.                                  */
@@ -79,7 +79,6 @@ FMOD_RESULT F_API FMOD_Studio_System_ResetBufferUsage(FMOD_STUDIO_SYSTEM *system
 FMOD_RESULT F_API FMOD_Studio_System_SetCallback(FMOD_STUDIO_SYSTEM *system, FMOD_STUDIO_SYSTEM_CALLBACK callback, FMOD_STUDIO_SYSTEM_CALLBACK_TYPE callbackmask);
 FMOD_RESULT F_API FMOD_Studio_System_SetUserData(FMOD_STUDIO_SYSTEM *system, void *userdata);
 FMOD_RESULT F_API FMOD_Studio_System_GetUserData(FMOD_STUDIO_SYSTEM *system, void **userdata);
-FMOD_RESULT F_API FMOD_Studio_System_GetMemoryUsage(FMOD_STUDIO_SYSTEM *system, FMOD_STUDIO_MEMORY_USAGE *memoryusage);
 
 /*
     EventDescription
@@ -150,8 +149,6 @@ FMOD_RESULT F_API FMOD_Studio_EventInstance_TriggerCue(FMOD_STUDIO_EVENTINSTANCE
 FMOD_RESULT F_API FMOD_Studio_EventInstance_SetCallback(FMOD_STUDIO_EVENTINSTANCE *eventinstance, FMOD_STUDIO_EVENT_CALLBACK callback, FMOD_STUDIO_EVENT_CALLBACK_TYPE callbackmask);
 FMOD_RESULT F_API FMOD_Studio_EventInstance_GetUserData(FMOD_STUDIO_EVENTINSTANCE *eventinstance, void **userdata);
 FMOD_RESULT F_API FMOD_Studio_EventInstance_SetUserData(FMOD_STUDIO_EVENTINSTANCE *eventinstance, void *userdata);
-FMOD_RESULT F_API FMOD_Studio_EventInstance_GetCPUUsage(FMOD_STUDIO_EVENTINSTANCE *eventinstance, unsigned int *exclusive, unsigned int *inclusive);
-FMOD_RESULT F_API FMOD_Studio_EventInstance_GetMemoryUsage(FMOD_STUDIO_EVENTINSTANCE *eventinstance, FMOD_STUDIO_MEMORY_USAGE *memoryusage);
 
 /*
     Bus
@@ -169,8 +166,6 @@ FMOD_RESULT F_API FMOD_Studio_Bus_StopAllEvents(FMOD_STUDIO_BUS *bus, FMOD_STUDI
 FMOD_RESULT F_API FMOD_Studio_Bus_LockChannelGroup(FMOD_STUDIO_BUS *bus);
 FMOD_RESULT F_API FMOD_Studio_Bus_UnlockChannelGroup(FMOD_STUDIO_BUS *bus);
 FMOD_RESULT F_API FMOD_Studio_Bus_GetChannelGroup(FMOD_STUDIO_BUS *bus, FMOD_CHANNELGROUP **group);
-FMOD_RESULT F_API FMOD_Studio_Bus_GetCPUUsage(FMOD_STUDIO_BUS *bus, unsigned int *exclusive, unsigned int *inclusive);
-FMOD_RESULT F_API FMOD_Studio_Bus_GetMemoryUsage(FMOD_STUDIO_BUS *bus, FMOD_STUDIO_MEMORY_USAGE *memoryusage);
 
 /*
     VCA

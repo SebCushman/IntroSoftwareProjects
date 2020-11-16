@@ -1,6 +1,6 @@
 /*==============================================================================
 Load Banks Example
-Copyright (c), Firelight Technologies Pty, Ltd 2012-2020.
+Copyright (c), Firelight Technologies Pty, Ltd 2012-2019.
 
 This example demonstrates loading banks via file, memory, and user callbacks.
 
@@ -385,7 +385,7 @@ int FMOD_Main()
 
         Common_Draw("==================================================");
         Common_Draw("Bank Load Example.");
-        Common_Draw("Copyright (c) Firelight Technologies 2012-2020.");
+        Common_Draw("Copyright (c) Firelight Technologies 2012-2019.");
         Common_Draw("==================================================");
         Common_Draw("Name            Handle  Bank-State  Sample-State");
 
