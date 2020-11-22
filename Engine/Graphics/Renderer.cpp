@@ -31,12 +31,18 @@ namespace nc {
             std::cout << "Error. " << SDL_GetError() << std::endl;
             return false;
         }
+
+        m_height = height;
+        m_width = width;
+
         return true;
     }
-    void Renderer::BeginFrame() {
+    void Renderer::BeginFrame() 
+    {
         SDL_RenderClear(m_renderer);
     }
-    void Renderer::EndFrame() {
+    void Renderer::EndFrame() 
+    {
         SDL_RenderPresent(m_renderer);
     }
 }

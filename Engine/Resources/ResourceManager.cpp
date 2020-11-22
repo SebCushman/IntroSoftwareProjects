@@ -18,7 +18,8 @@ namespace nc {
 
 	void ResourceManager::RemoveAll()
 	{
-		for (auto resource : m_resources) {
+		for (auto resource : m_resources) 
+		{
 			resource.second->Destroy();
 			delete resource.second;
 		}

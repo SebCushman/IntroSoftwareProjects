@@ -92,20 +92,8 @@
     <ClInclude Include="Objects\GameObject.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Components\Component.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Components\PhysicsComponent.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Components\RenderComponent.h">
-      <Filter>Components</Filter>
-    </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Components\SpriteComponent.h">
-      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="Core\Json.h">
       <Filter>Core</Filter>
@@ -125,14 +113,8 @@
     <ClInclude Include="Objects\Scene.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Components\SpriteAnimationComponent.h">
-      <Filter>Components</Filter>
-    </ClInclude>
     <ClInclude Include="Physics\PhysicsSystem.h">
       <Filter>Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Components\RigidBodyComponent.h">
-      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="Physics\ContactListener.h">
       <Filter>Physics</Filter>
@@ -146,11 +128,32 @@
     <ClInclude Include="Audio\Sound.h">
       <Filter>Audio</Filter>
     </ClInclude>
+    <ClInclude Include="Core\EventManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
     <ClInclude Include="Components\AudioComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Core\EventManager.h">
-      <Filter>Core</Filter>
+    <ClInclude Include="Components\CameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Component.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\PhysicsComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\RenderComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\RigidBodyComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\SpriteAnimationComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\SpriteComponent.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -181,12 +184,6 @@
     <ClCompile Include="Objects\GameObject.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Components\PhysicsComponent.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Components\SpriteComponent.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Json.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -199,14 +196,8 @@
     <ClCompile Include="Objects\Scene.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Components\SpriteAnimationComponent.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="Physics\PhysicsSystem.cpp">
       <Filter>Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Components\RigidBodyComponent.cpp">
-      <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="Physics\ContactListener.cpp">
       <Filter>Physics</Filter>
@@ -223,14 +214,29 @@
     <ClCompile Include="Audio\Sound.cpp">
       <Filter>Audio</Filter>
     </ClCompile>
-    <ClCompile Include="Components\AudioComponent.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="Resources\ResourceManager.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
     <ClCompile Include="Core\EventManager.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\AudioComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\CameraComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\PhysicsComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\RigidBodyComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\SpriteAnimationComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\SpriteComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

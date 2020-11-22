@@ -73,135 +73,8 @@
     },
     {
       "type": "GameObject",
-      "name": "ProtoBat",
-      "tag": "Enemy",
-      "transient": false,
-      "position": [
-        0,
-        0
-      ],
-      "scale": 1,
-      "angle": 0,
-      "Components": [
-        {
-          "type": "SpriteAnimationComponent",
-          "texture": "textures/bat.png",
-          "origin": [
-            0.5,
-            0.5
-          ],
-          "numX": 4,
-          "numY": 1,
-          "numFrames": 4,
-          "fps": 10
-        },
-        {
-            "type": "EnemyComponent"
-        },
-        {
-          "type": "RigidBodyComponent",
-          "isDynamic": true,
-          "isSensor": false,
-          "lockAngle": false,
-          "size": [
-            8,
-            8
-          ],
-          "density": 1,
-          "friction": 1,
-          "restitution": 0,
-          "gravityScale": 0
-        }
-      ]
-    },
-    {
-      "type": "GameObject",
-      "name": "ProtoSlime",
-      "tag": "Enemy",
-      "transient": false,
-      "position": [
-        400,
-        300
-      ],
-      "scale": 1,
-      "angle": 0,
-      "Components": [
-        {
-          "type": "SpriteComponent",
-          "texture": "textures/slime.png",
-          "origin": [
-            0.5,
-            0.5
-          ],
-          "rect": [
-            0,
-            0,
-            32,
-            32
-          ]
-        },
-        {
-            "type": "EnemyComponent"
-        },
-        {
-          "type": "RigidBodyComponent",
-          "isDynamic": true,
-          "isSensor": false,
-          "lockAngle": false,
-          "size": [
-            16,
-            16
-          ],
-          "density": 1,
-          "friction": 1,
-          "restitution": 0,
-          "gravityScale": 0
-        }
-      ]
-    },
-    {
-      "type": "GameObject",
-      "name": "ProtoBox",
-      "position": [
-        400,
-        500
-      ],
-      "scale": 1,
-      "angle": 0,
-      "Components": [
-        {
-          "type": "SpriteComponent",
-          "texture": "textures/crate.png",
-          "origin": [
-            0.5,
-            0.5
-          ],
-          "rect": [
-            0,
-            0,
-            48,
-            48
-          ]
-        },
-        {
-          "type": "RigidBodyComponent",
-          "isDynamic": true,
-          "isSensor": false,
-          "lockAngle": false,
-          "size": [
-            24,
-            24
-          ],
-          "density": 1,
-          "friction": 1,
-          "restitution": 0
-        }
-      ]
-    },
-    {
-      "type": "GameObject",
       "name": "Tile01",
-      "tag": "Floor",
+      "tag": "wall",
       "position": [
         400,
         500
@@ -211,7 +84,7 @@
       "Components": [
         {
           "type": "SpriteComponent",
-          "texture": "textures/tile01.png",
+          "texture": "textures/tileWall.png",
           "origin": [
             0.5,
             0.5
@@ -236,6 +109,123 @@
           "restitution": 0
         }
       ]
+    },
+	{
+      "type": "GameObject",
+      "name": "Tile02",
+      "tag": "wall",
+      "position": [
+        400,
+        500
+      ],
+      "scale": 1,
+      "angle": 0,
+      "Components": [
+        {
+          "type": "SpriteComponent",
+          "texture": "textures/tileFloor.png",
+          "origin": [
+            0.5,
+            0.5
+          ],
+          "rect": [
+            0,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "type": "RigidBodyComponent",
+          "isDynamic": false,
+          "lockAngle": false,
+          "size": [
+            32,
+            32
+          ],
+          "density": 0,
+          "friction": 0,
+          "restitution": 0
+        }
+      ]
+    },
+	{
+      "type": "GameObject",
+      "name": "TileConnecter",
+      "tag": "wall",
+      "position": [
+        400,
+        500
+      ],
+      "scale": 1,
+      "angle": 0,
+      "Components": [
+        {
+          "type": "SpriteComponent",
+          "texture": "textures/tileFloor.png",
+          "origin": [
+            0.5,
+            0.5
+          ],
+          "rect": [
+            0,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "type": "RigidBodyComponent",
+          "isDynamic": false,
+          "lockAngle": false,
+          "size": [
+            32,
+            32
+          ],
+          "density": 0,
+          "friction": 0,
+          "restitution": 0
+        }
+      ]
+    },
+	{
+      "type": "GameObject",
+      "name": "TileGrid",
+      "tag": "wall",
+      "position": [
+        400,
+        500
+      ],
+      "scale": 1,
+      "angle": 0,
+      "Components": [
+        {
+          "type": "SpriteComponent",
+          "texture": "textures/tileFloor.png",
+          "origin": [
+            0.5,
+            0.5
+          ],
+          "rect": [
+            0,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "type": "RigidBodyComponent",
+          "isDynamic": false,
+          "lockAngle": false,
+          "size": [
+            32,
+            32
+          ],
+          "density": 0,
+          "friction": 0,
+          "restitution": 0
+        }
+      ]
     }
   ],
   "GameObjects": [
@@ -251,7 +241,7 @@
       "Components": [
         {
           "type": "SpriteComponent",
-          "texture": "textures/mountainBG.png",
+          "texture": "textures/backgroundPlaceholder.png",
           "origin": [
             0,
             0
@@ -259,8 +249,8 @@
           "rect": [
             0,
             0,
-            800,
-            600
+            1920,
+            1080
           ]
         }
       ]
@@ -268,9 +258,10 @@
     {
       "type": "GameObject",
       "name": "Player",
+      "tag": "player",
       "position": [
-        400,
-        350
+        512,
+        512
       ],
       "scale": 1,
       "angle": 0,
@@ -286,34 +277,37 @@
           "density": 1,
           "friction": 1,
           "restitution": 0,
-          "gravityScale": 1.5
+          "gravityScale": 0
         },
         {
           "type": "PlayerComponent"
         },
         {
-          "type": "SpriteAnimationComponent",
-          "numX": 8,
-          "numY": 1,
-          "numFrames": 8,
-          "fps": 15,
-          "texture": "textures/player.png",
+          "type": "SpriteComponent",
+          "texture": "textures/playerPlaceholder.png",
           "origin": [
             0.5,
             0.5
+          ],
+          "rect": [
+            0,
+            0,
+            64,
+            64
           ]
+        },
+        {
+        	"type": "CameraComponent",
+        	"position": [
+        		0,
+        		0
+        	]
         },
         {
           "type": "AudioComponent",
           "sound": "audio/Jump.wav",
           "playOnAwake": true,
           "loop": false
-        },
-        {
-          "type": "AudioComponent",
-          "sound": "audio/bgm.mp3",
-          "playOnAwake": true,
-          "loop": true
         }
       ]
     }

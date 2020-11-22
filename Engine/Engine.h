@@ -25,6 +25,10 @@ namespace nc {
 	protected:
 		std::vector<System*> m_systems;
 		FrameTimer m_timer;
+
+		std::string m_name;
+		POINT m_point;
+		LPPOINT m_lpPoint = &m_point;
 	};
 
 	template<typename T>

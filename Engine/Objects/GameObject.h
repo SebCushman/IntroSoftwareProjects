@@ -1,6 +1,7 @@
 #pragma once
 #include "Object.h"
 #include "Math/Transform.h"
+#include "Scene.h"
 #include "Engine.h"
 #include <bitset>
 #include <list>
@@ -53,7 +54,7 @@ namespace nc {
 
 		Transform m_transform;
 		Engine* m_engine{nullptr};
-		class Scene* m_scene{ nullptr };
+		Scene* m_scene{ nullptr };
 
 	protected:
 		std::vector<Component*> m_components;
