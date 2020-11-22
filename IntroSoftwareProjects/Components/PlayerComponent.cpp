@@ -1,15 +1,16 @@
 #include "pch.h"
 #include "PlayerComponent.h"
+#include "Components/RigidBodyComponent.h"
 #include "Components/PhysicsComponent.h"
 #include "Components/AudioComponent.h"
 #include "Components/SpriteComponent.h"
 
 namespace nc {
+
 	void nc::PlayerComponent::Create(void* data)
 	{
         m_owner = static_cast<nc::GameObject*>(data);
-        EventManager::Instance().Subscribe("CollisionEnter", std::bind(&PlayerComponent::OnCollisionEnter, this, std::placeholders::_1), m_owner);
-        EventManager::Instance().Subscribe("CollisionExit", std::bind(&PlayerComponent::OnCollisionExit, this, std::placeholders::_1), m_owner);
+
 	}
 
 	void nc::PlayerComponent::Destroy()
@@ -23,47 +24,189 @@ namespace nc {
 
         nc::Vector2 force{ 0,0 };
 
-        if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_A) == nc::InputSystem::eButtonState::HELD)
+        // CHECK VALID MOVEMENT TODO
+        // Store player's current position, check the next position... if wall tile, do not move.
+        
+        
+        signed int prevPlayerIndex = m_playerIndex;
+
+        bool diagonal = m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_Q) == nc::InputSystem::eButtonState::HELD;
+
+        
+        if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_A) == nc::InputSystem::eButtonState::PRESSED)
         {
-            force.x = -200;
+            //DOWN LEFT
+            if (diagonal)
+            {
+                m_playerIndex -= 1;
+                m_playerIndex += m_tileMap.GetNums()[1];
+            }
+            //LEFT
+            else
+            {
+                m_playerIndex -= 1;
+
+            }
+            //system("cls");
+            //std::cout << "X: " << playerPos[0] << " Y: " << playerPos[1] << std::endl;
             //m_owner->m_transform.angle = m_owner->m_transform.angle - 200.0f * m_owner->m_engine->GetTimer().DeltaTime();
         }
-        if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_D) == nc::InputSystem::eButtonState::HELD)
+        if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_D) == nc::InputSystem::eButtonState::PRESSED)
         {
-            force.x = 200;
-        }
-
-        if (onGround && m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_SPACE) == nc::InputSystem::eButtonState::HELD)
-        {
-            force.y = -1000;
-            AudioComponent* audioComponent = m_owner->GetComponent<AudioComponent>();
-            if (audioComponent)
+            //UP RIGHT
+            if (diagonal)
             {
-                audioComponent->SetSoundName("audio/jump.wav");
-                audioComponent->Play();
+                m_playerIndex += 1;
+                m_playerIndex -= m_tileMap.GetNums()[1];
             }
+            //RIGHT
+            else
+            {
+                m_playerIndex += 1;
 
-        }
-      
-        PhysicsComponent* component = m_owner->GetComponent<PhysicsComponent>();
-        if (component) {
-            component->ApplyForce(force);
-
-            SpriteComponent* spriteComponent = m_owner->GetComponent<SpriteComponent>();
-
-            Vector2 velocity = component->GetVelocity();
-            if (velocity.x >= 0.5f) spriteComponent->Flip(false);
-            if (velocity.x <= -0.5f) spriteComponent->Flip();
+            }
+            //system("cls");
+            //std::cout << "X: " << playerPos[0] << " Y: " << playerPos[1] << std::endl;
         }
 
-        //check collision
-        auto coinContacts = m_owner->GetContactsWithTag("Coin");
-        for (auto contact : coinContacts) {
-            contact->m_flags[GameObject::eFlags::DESTROY] = true;
+        //Y
+        if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_W) == nc::InputSystem::eButtonState::PRESSED)
+        {
+            if (diagonal)
+            //UP LEFT
+            {
+                m_playerIndex -= 1;
+                m_playerIndex -= m_tileMap.GetNums()[1];
+            }
+            //UP
+            else
+            {
+                m_playerIndex -= m_tileMap.GetNums()[1];
+                
+            }
+            //system("cls");
+            //std::cout << "X: " << playerPos[0] << " Y: " << playerPos[1] << std::endl;
         }
 
-        auto enemyContacts = m_owner->GetContactsWithTag("Enemy");
-        if (enemyContacts.empty()) std::cout << "enemy hit\n";
+        if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_S) == nc::InputSystem::eButtonState::PRESSED)
+        {
+            if (diagonal)
+                //UP LEFT
+            {
+                m_playerIndex += 1;
+                m_playerIndex += m_tileMap.GetNums()[1];
+            }
+            //DOWN
+            else
+            {
+                m_playerIndex += m_tileMap.GetNums()[1];
+
+            }
+            //system("cls");
+        }
+
+        int index = m_tileMap.GetTiles()[prevPlayerIndex];
+        
+
+        if (m_playerIndex < m_tileMap.GetTiles().size() && m_playerIndex > 0)
+        {
+            index = m_tileMap.GetTiles()[m_playerIndex];
+            /*int index1 = m_tileMap.GetTiles()[playerPos[0]];
+            int index2 = m_tileMap.GetTiles()[playerPos[1]];*/
+
+            if (m_tileMap.GetTileNames()[index] == "Tile01"/* || m_tileMap.GetTileNames()[index2] == "Tile01"*/)
+            {
+                // Horizontal Wrapping
+                if (prevPlayerIndex % m_tileMap.GetNums()[0] == 0) // X = 0
+                {
+                    // Next Room Code - LEFT TODO
+                    m_playerIndex += m_tileMap.GetNums()[0];
+                }
+                else if(prevPlayerIndex % m_tileMap.GetNums()[0] == m_tileMap.GetNums()[0] - 1) // X = numX
+                {
+                    // Next Room Code - RIGHT TODO
+                    m_playerIndex -= m_tileMap.GetNums()[0];
+                }
+                // Vertical Wrapping
+                // if on bottom, subtract the room size (numY) times the current playerPos divided by the room size (numY)
+            
+                //else if (prevPlayerIndex / m_tileMap.GetNums()[1] == m_tileMap.GetNums()[1]-1) // Y = numY
+                //{
+                //    m_playerIndex = m_tileMap.GetNums()[1] * (m_tileMap.GetNums()[1]- 1);
+                //}
+                if (prevPlayerIndex / m_tileMap.GetNums()[1] == 0) // Y = 0
+                {
+                    m_playerIndex += (m_tileMap.GetNums()[1] * m_tileMap.GetNums()[1]) - prevPlayerIndex;
+                }
+
+                if (
+                    prevPlayerIndex % m_tileMap.GetNums()[0] != 0 && prevPlayerIndex % m_tileMap.GetNums()[0] != m_tileMap.GetNums()[0] - 1
+                    &&
+                    prevPlayerIndex / m_tileMap.GetNums()[1] != 0
+                    )
+                {
+                    m_playerIndex = prevPlayerIndex;
+
+                }
+
+
+
+
+            }
+        }
+        else
+        {
+            m_playerIndex = prevPlayerIndex;
+        }
+
+
+        
+        if (m_playerIndex != prevPlayerIndex)
+        {
+            system("cls");
+            std::cout << "X: " << m_playerIndex % m_tileMap.GetNums()[0] << " Y: " << m_playerIndex / m_tileMap.GetNums()[1] << " Index: " << m_playerIndex << std::endl;
+        }
+
+        //Room Wrapping
+
+        
+
+        /*if (playerPos[0] >= m_tileMap.GetTiles().size()-1)
+        {
+            playerPos[0] = 0;
+        }
+        else if (playerPos[0] <= 0)
+        {
+            playerPos[0] = m_tileMap.GetTiles().size()-1;
+        }
+
+        if (playerPos[1] >= m_tileMap.GetTiles().size()-1)
+        {
+            playerPos[1] = 0;
+        }
+        else if (playerPos[1] <= 0)
+        {
+            playerPos[1] = m_tileMap.GetTiles().size()-1;
+        }*/
+
+
+        /*m_owner->m_transform.position.x = m_tileMap.GetGameObjectTiles().at(playerPos[0])->m_transform.position.x;
+        m_owner->m_transform.position.y = m_tileMap.GetGameObjectTiles().at(playerPos[1])->m_transform.position.y;*/
+
+        m_owner->m_transform.position = m_tileMap.GetGameObjectTiles().at(m_playerIndex)->m_transform.position;   //.GetGameObjectTiles().at(m_playerIndex)->m_transform.position;
+    }
+
+    void PlayerComponent::LoadMap(const TileMap& tileMap)
+    {
+        m_tileMap = tileMap;
+        m_playerIndex = (m_tileMap.GetNums()[0]* (m_tileMap.GetNums()[1]) / 2);
+
+    }
+
+    void PlayerComponent::LoadMap(const Map& map)
+    {
+        m_map = map;
+        //m_playerIndex = (m_map.GetNums()[0] * (m_map.GetNums()[1]) / 2);
     }
 
     void PlayerComponent::OnCollisionEnter(const Event& event)

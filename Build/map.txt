@@ -1,0 +1,15 @@
+{
+	"map": "test",
+	"numX": 2,
+	"numY": 2,
+	"size": [64, 64],
+	"start": [32, 32],
+	"roomNames":["emptyTileMap13x13.txt", "01.txt"],
+	"tiles":
+	[
+		1, 1,
+		1, 1
+
+
+	]
+}

@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "Engine.h"
+#include <iostream>
 
-namespace nc {
+namespace nc 
+{
 	bool nc::Engine::Startup()
 	{
 		srand(static_cast<unsigned int>(time(nullptr)));
@@ -17,7 +19,15 @@ namespace nc {
 		}
 
 		//create window
-		GetSystem<Renderer>()->Create("GAT150", 800, 600);
+		
+		m_point.x = 0;
+		m_point.y = 0;
+
+		GetCursorPos(m_lpPoint);
+
+		m_name = "Introductory Software Projects";
+
+		GetSystem<Renderer>()->Create(m_name, 1920, 1080);
 
 		return true;
 	}
@@ -37,6 +47,8 @@ namespace nc {
 	void nc::Engine::Update()
 	{
 		m_timer.Tick();
+		GetCursorPos(m_lpPoint);
+		//std::cout << "X: " + std::to_string(m_point.x) + " Y: " + std::to_string(m_point.y) << std::endl;
 
 		for (auto system : m_systems) {
 			system->Update();

@@ -14,9 +14,14 @@ namespace nc {
         void BeginFrame();
         void EndFrame();
 
+        Vector2 GetDimensions() { return { m_width, m_height }; }
+
         friend class Texture;
 
     protected:
+        int m_width{ 0 };
+        int m_height{ 0 };
+
         SDL_Window* m_window{ nullptr };
         SDL_Renderer* m_renderer{ nullptr };
     };

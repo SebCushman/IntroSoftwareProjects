@@ -1,14 +1,18 @@
 #pragma once
 #include "PhysicsComponent.h"
 
-namespace nc {
-	class RigidBodyComponent : public PhysicsComponent {
+namespace nc 
+{
+	class RigidBodyComponent : public PhysicsComponent 
+	{
 	public:
 		virtual void Create(void* data = nullptr) override;
 		virtual void Destroy() override;
 		virtual Object* Clone() const override { return new RigidBodyComponent{ *this }; }
 
 		void Read(const rapidjson::Value& value) override;
+
+		b2Body* GetBody() { return m_body; }
 
 		virtual void Update() override;
 

@@ -152,6 +152,9 @@
     <ClInclude Include="Core\EventManager.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Components\CameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -231,6 +234,9 @@
     </ClCompile>
     <ClCompile Include="Core\EventManager.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\CameraComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
