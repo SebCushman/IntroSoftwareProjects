@@ -148,6 +148,11 @@
       <Project>{78fd3c6e-76a6-4f7e-9749-2f2e2519edd5}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="NPC.h" />
+    <ClInclude Include="Player.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
