@@ -199,7 +199,7 @@ namespace nc {
     void PlayerComponent::LoadMap(const TileMap& tileMap)
     {
         m_tileMap = tileMap;
-        m_playerIndex = (m_tileMap.GetNums()[0]* (m_tileMap.GetNums()[1]) / 2);
+        m_playerIndex = 188;
 
     }
 

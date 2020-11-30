@@ -47,7 +47,7 @@ namespace nc {
 			{
 				component->UpdateCameraPosition(player->m_transform.position);
 				component->SetCropFactor({ player->GetComponent<PlayerComponent>()->GetTileMap().GetNums()[0], player->GetComponent<PlayerComponent>()->GetTileMap().GetNums()[1] });
-				cameraOffset = (component->GetCameraPosition() - (m_owner->m_engine->GetSystem<Renderer>()->GetDimensions() * 0.5f));// / component->GetCropFactor();
+				cameraOffset = (component->GetCameraPosition() - (m_owner->m_engine->GetSystem<Renderer>()->GetDimensions() * 0.5f)); // / component->GetCropFactor();
 				
 
 			}
