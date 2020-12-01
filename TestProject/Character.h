@@ -21,7 +21,7 @@ namespace nc {
 
 		}
 
-		void attack(Character* target, Skill skill);
+		void attack(Character* target, Attack skill);
 
 
 

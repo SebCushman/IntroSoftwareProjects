@@ -26,7 +26,7 @@ void nc::NPC::move()
 	//pick a direction, towards the player if they're near enough, or a random direction, and adjust the position of the NPC
 }
 
-int nc::NPC::playerInRange(Skill skill)
+int nc::NPC::playerInRange(nc::Attack skill)
 {
 	int delta = 0;
 	//check 8 directions up to the range of the passed in skill

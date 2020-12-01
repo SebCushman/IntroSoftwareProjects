@@ -12,7 +12,7 @@ namespace nc {
 		void takeTurn();
 		void move();
 
-		int playerInRange(Skill skill);
+		int playerInRange(Attack skill);
 		bool playerInSight();
 
 
