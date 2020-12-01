@@ -21,6 +21,7 @@ namespace nc
 		else if (m_dMoney != 0)
 		{
 			//target.
+			//help
 			return true;
 		}
 		return false;
