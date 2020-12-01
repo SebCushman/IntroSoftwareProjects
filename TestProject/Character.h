@@ -1,5 +1,6 @@
 #pragma once
 #include "Skill.h"
+#include "Items/Items.h"
 
 namespace nc {
 
@@ -20,6 +21,8 @@ namespace nc {
 
 		void attack(Character* target, Attack skill);
 
+		friend class Items;
+		friend class Item;
 
 	protected:
 		int maxHP;

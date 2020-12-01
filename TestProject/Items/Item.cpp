@@ -1,21 +1,29 @@
 #include "Item.h"
 
-bool nc::Item::Use(Character* target)
+namespace nc
 {
-	if (m_dHP != 0)
+	bool Item::Use(Player* target)
 	{
-		return true;
-		//target.m_currentHP += m_dHP;
+		if (m_dHP != 0)
+		{
+			target->currentHP += m_dHP;
+			return true;
+		}
+		else if (m_dMP != 0)
+		{
+			std::list<Skill>::iterator it = target->allSkills.begin();
+			for (int i = 0; i < target->allSkills.size(); i++)
+			{
+				std::advance(it, i);
+			}
+			return true;
+		}
+		else if (m_dMoney != 0)
+		{
+			//target.
+			//help
+			return true;
+		}
+		return false;
 	}
-	else if (m_dMP != 0)
-	{
-		return true;
-		//target.m_currentMP += m_dMP;
-	}
-	else if (m_dMoney != 0)
-	{
-		return true;
-		//target.m_Money += m_dMoney;
-	}
-	return false;
 }
