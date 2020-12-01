@@ -13,6 +13,7 @@ namespace nc {
 		int playerInRange(Attack skill);
 		bool playerInSight();
 
+		friend class Game;
 
 
 	protected:

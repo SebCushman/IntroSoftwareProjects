@@ -1,10 +1,13 @@
 #include <iostream>
-#include "player.h"
-#include "NPC.h"
+#include "Game.h"
 
+namespace nc {
 
+    int main()
+    {
+        Game game;
+        game.run();
 
-int main(int, char**)
-{
-    
+        return 0;
+    }
 }

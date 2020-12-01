@@ -1,6 +1,8 @@
 #pragma once
 #include "Skill.h"
 #include "Game.h"
+#include <vector>
+#include <string>
 
 namespace nc {
 
@@ -19,10 +21,22 @@ namespace nc {
 
 		}
 
-		void attack(Character* target, Attack skill);
-
 		friend class Items;
 		friend class Item;
+		friend class Game;
+
+		void attack(Character* target, Attack skill);
+
+		void setOwner(Game* game);
+
+		inline float random() { return rand() / static_cast<float>(RAND_MAX); }
+
+		inline float random(float min, float max) {
+			if (min > max) {
+				std::swap(min, max);
+			}
+			return min + ((max - min) * random());
+		}
 
 	protected:
 		int maxHP;

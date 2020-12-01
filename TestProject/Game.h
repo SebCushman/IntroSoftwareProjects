@@ -1,12 +1,17 @@
 #pragma once
+#include "Character.h"
+#include <vector>
 
 namespace nc {
 	class Game {
 	public:
 		void run();
 
-	protected:
+		friend class NPC;
+		friend class Player;
 
+	protected:
+		std::vector<Character*> characters{};
 
 	};
 
