@@ -16,9 +16,6 @@ namespace nc {
 			position = _position;
 			name = _name;
 
-			//populate skill lists from DB
-
-
 		}
 
 		void attack(Character* target, Attack skill);

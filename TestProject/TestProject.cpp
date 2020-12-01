@@ -1,8 +1,10 @@
-
-
 #include <iostream>
+#include "player.h"
+#include "NPC.h"
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    
 }

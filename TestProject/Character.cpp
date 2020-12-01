@@ -3,14 +3,11 @@
 
 void nc::Character::attack(Character* target, nc::Attack skill)
 {
-	bool isMagic = skill.m_isMagic;
-	float onTarget = random(0, 1);
-	if (onTarget <= skill.m_accuracy) {
+	if (random(0, 1) <= skill.m_accuracy) {
 		float connect = random(0, 1);
 		if (connect <= target->evasion) {
-			float damageMult = random(0, 1);
-			float damage = (damageMult * ((skill.m_maxDam - skill.m_minDam + 1) + skill.m_minDam));
-			if (isMagic) {
+			float damage = (random(0, 1) * ((skill.m_maxDam - skill.m_minDam + 1) + skill.m_minDam));
+			if (skill.m_isMagic) {
 				damage *= (mAttack / target->mDefense);
 			}
 			else {

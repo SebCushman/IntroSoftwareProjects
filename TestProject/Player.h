@@ -1,5 +1,6 @@
 #pragma once
 #include "Character.h"
+#include "Items/Item.h"
 
 namespace nc {
 	class Player : public Character {
@@ -14,7 +15,7 @@ namespace nc {
 
 	protected:
 
-		std::vector<class Item> inventory{};
+		std::vector<Item> inventory{};
 		int money{ 0 };
 	};
 }
