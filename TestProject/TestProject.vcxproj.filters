@@ -16,6 +16,9 @@
     <Filter Include="Items">
       <UniqueIdentifier>{1d02b2b3-d77b-4b42-a270-cfe0ef7294e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{f5bf3573-8209-4894-a716-dc5a387d34d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestProject.cpp">
@@ -32,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="Items\Item.cpp">
       <Filter>Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="Items\Items.h">
       <Filter>Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Source Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

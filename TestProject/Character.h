@@ -5,7 +5,7 @@ namespace nc {
 
 	class Character {
 	public:
-		Character(int _maxHP, int _mDefense, int _mAttack, int _pDefense, int _pAttack, int _evasion, int _position, std::string _name) {
+		Character(int _maxHP, int _mDefense, int _mAttack, int _pDefense, int _pAttack, float _evasion, int _position, std::string _name) {
 			maxHP = _maxHP;
 			currentHP = maxHP;
 			mDefense = _mDefense;
@@ -19,8 +19,6 @@ namespace nc {
 		}
 
 		void attack(Character* target, Attack skill);
-
-
 
 
 	protected:
