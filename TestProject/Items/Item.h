@@ -1,7 +1,7 @@
 #pragma once
 #include "Items.h"
+#include "../Player.h"
 #include <iostream>
-#include "../Characters/Character.h"
 
 namespace nc
 {
@@ -29,7 +29,7 @@ namespace nc
 			return os;
 		}
 
-		bool Use(Character* target);
+		bool Use(Player* target);
 
 	protected:
 		int m_dHP{ 0 };
