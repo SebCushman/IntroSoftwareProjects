@@ -20,6 +20,9 @@ namespace nc {
 	public:
 		Skill(float accuracy, int minDam, int maxDam, int range, bool isMagic, int maxCharges) : Attack(accuracy, minDam, maxDam, range, isMagic), m_maxCharges{ maxCharges }, m_currentCharges{maxCharges}{}
 
+		friend class Items;
+		friend class Item;
+
 	protected:
 		int m_currentCharges{ 0 };
 		int m_maxCharges{ 30 };

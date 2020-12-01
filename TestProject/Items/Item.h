@@ -29,7 +29,7 @@ namespace nc
 			return os;
 		}
 
-		bool Use(Player* target);
+		bool Use(Character* target);
 
 	protected:
 		int m_dHP{ 0 };
