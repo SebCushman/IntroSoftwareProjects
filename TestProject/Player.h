@@ -2,20 +2,19 @@
 #include "Character.h"
 
 namespace nc {
-	class NPC : public Character {
+	class Player : public Character {
 	public:
-		NPC(int _maxHP, int _mDefense, int _mAttack, int _pDefense, int _pAttack, int _evasion, int _position, std::string _name, std::string _tag)
+		Player(int _maxHP, int _mDefense, int _mAttack, int _pDefense, int _pAttack, int _evasion, int _position, std::string _name)
 			: Character(_maxHP, _mDefense, _mAttack, _pDefense, _pAttack, _evasion, _position, _name) {
-			tag = _tag;
 		}
 
-		void takeTurn();
-		void move();
+		void levelUp();
 
 
 
 	protected:
 
-		std::string tag;
+		std::vector<class Item> inventory{};
+		int money{ 0 };
 	};
 }

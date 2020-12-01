@@ -12,10 +12,15 @@ namespace nc {
 		void takeTurn();
 		void move();
 
+		int playerInRange(Skill skill);
+		bool playerInSight();
+
 
 
 	protected:
 
 		std::string tag;
+		int xpValue{ 0 };
+		
 	};
 }

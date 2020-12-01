@@ -1,5 +1,5 @@
 #pragma once
-#include "pch.h"
+#include "Skill.h"
 
 namespace nc {
 
@@ -21,9 +21,9 @@ namespace nc {
 
 		}
 
-		void attack(Character* target, class skill);
+		void attack(Character* target, Skill skill);
 
-		void levelUp();
+
 
 
 	protected:
@@ -33,11 +33,11 @@ namespace nc {
 		int mAttack;
 		int pDefense;
 		int pAttack;
-		int evasion;
+		float evasion;
 		int position;
 		std::string name;
-		std::list<class Skill> allSkills{};
-		std::list<class Skill> currentSkills{};
+		std::list<Skill> allSkills{};
+		std::list<Skill> currentSkills{};
 		int level;
 		int xp;
 		std::vector<int> xpThresh{ 0, 5, 12, 25, 40, 60 };
