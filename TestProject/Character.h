@@ -1,6 +1,6 @@
 #pragma once
 #include "Skill.h"
-#include "Items/Items.h"
+#include "Game.h"
 
 namespace nc {
 
@@ -34,12 +34,12 @@ namespace nc {
 		float evasion;
 		int position;
 		std::string name;
-		std::list<Skill> allSkills{};
-		std::list<Skill> currentSkills{};
+		std::vector<Skill> allSkills{};
+		std::vector<Skill> currentSkills{};
 		int level;
 		int xp;
 		std::vector<int> xpThresh{ 0, 5, 12, 25, 40, 60 };
-
+		Game* owner{ nullptr };
 
 	};
 }

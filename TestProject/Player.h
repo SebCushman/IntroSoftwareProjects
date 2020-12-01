@@ -1,5 +1,6 @@
 #pragma once
 #include "Character.h"
+#include "Items/Item.h"
 
 namespace nc {
 	class Player : public Character {
