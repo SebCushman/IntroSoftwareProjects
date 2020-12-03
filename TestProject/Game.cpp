@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Player.h"
 #include "NPC.h"
+#include "Items/Item.h"
 #include <iostream>
 
 void nc::Game::run()
@@ -16,7 +17,12 @@ void nc::Game::run()
 
 	Skill skill{ .6, 3, 6, 3, false, 40 };
 
+	Item healing(5, 0, 0, 25);
+	Item healing(0, 5, 0, 25);
+
 	std::cout << enemy.currentHP << std::endl;
 	player.attack(&enemy, skill);
+	std::cout << enemy.currentHP << std::endl;
+	healing.Use(&enemy);
 	std::cout << enemy.currentHP << std::endl;
 }
