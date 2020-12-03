@@ -20,20 +20,20 @@ namespace nc {
 
 		void SetStart(Vector2 start) { m_start = start; }
 
-		std::vector<GameObject*> GetGameObjectTiles() { return m_gameObjectTiles; }
+		GameObject*** GetGameObjectTiles() { return *m_gameObjectTiles; }
  		
 	protected:
 		/*std::string m_roomName;
 		std::string m_map;*/
 
 		Vector2 m_offset{ 0, 0 };
-
+		
 		int m_numX{ 0 };
 		int m_numY{ 0 };
 		Vector2 m_size;
 		Vector2 m_start;
 
-		std::vector<GameObject*> m_gameObjectTiles;
+		GameObject** m_gameObjectTiles[30][30];
 
 		std::vector<std::string> m_tileNames;
 		std::vector<int> m_tiles;

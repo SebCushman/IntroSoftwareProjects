@@ -28,7 +28,7 @@ namespace nc {
         // Store player's current position, check the next position... if wall tile, do not move.
         
         
-        signed int prevPlayerIndex = m_playerIndex;
+        Vector2 prevPlayerIndex = m_playerIndex;
 
         bool diagonal = m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_Q) == nc::InputSystem::eButtonState::HELD;
 
@@ -38,13 +38,12 @@ namespace nc {
             //DOWN LEFT
             if (diagonal)
             {
-                m_playerIndex -= 1;
-                m_playerIndex += m_tileMap.GetNums()[1];
+                m_playerIndex += {-1, 1};
             }
             //LEFT
             else
             {
-                m_playerIndex -= 1;
+                m_playerIndex += {-1, 0};
 
             }
             //system("cls");
@@ -56,13 +55,12 @@ namespace nc {
             //UP RIGHT
             if (diagonal)
             {
-                m_playerIndex += 1;
-                m_playerIndex -= m_tileMap.GetNums()[1];
+                m_playerIndex += {1, -1};
             }
             //RIGHT
             else
             {
-                m_playerIndex += 1;
+                m_playerIndex += {1, 0};
 
             }
             //system("cls");
@@ -75,13 +73,12 @@ namespace nc {
             if (diagonal)
             //UP LEFT
             {
-                m_playerIndex -= 1;
-                m_playerIndex -= m_tileMap.GetNums()[1];
+                m_playerIndex += {-1, -1};
             }
             //UP
             else
             {
-                m_playerIndex -= m_tileMap.GetNums()[1];
+                m_playerIndex += {0, -1};
                 
             }
             //system("cls");
@@ -93,61 +90,61 @@ namespace nc {
             if (diagonal)
                 //UP LEFT
             {
-                m_playerIndex += 1;
-                m_playerIndex += m_tileMap.GetNums()[1];
+                m_playerIndex += {1, -1};
             }
             //DOWN
             else
             {
-                m_playerIndex += m_tileMap.GetNums()[1];
+                m_playerIndex += {0, 1};
 
             }
             //system("cls");
         }
 
-        int index = m_tileMap.GetTiles()[prevPlayerIndex];
+
+        int index = m_tileMap.GetTiles()[prevPlayerIndex.x + (prevPlayerIndex.y * (m_tileMap.GetNums())[0])];
         
 
-        if (m_playerIndex < m_tileMap.GetTiles().size() && m_playerIndex > 0)
+        if ((m_playerIndex.x + (m_playerIndex.y * (m_tileMap.GetNums())[0])) < m_tileMap.GetTiles().size() && (m_playerIndex.x + (m_playerIndex.y * (m_tileMap.GetNums())[0])) > 0)
         {
-            index = m_tileMap.GetTiles()[m_playerIndex];
+            index = m_tileMap.GetTiles()[(m_playerIndex.x + (m_playerIndex.y * (m_tileMap.GetNums())[0]))];
             /*int index1 = m_tileMap.GetTiles()[playerPos[0]];
             int index2 = m_tileMap.GetTiles()[playerPos[1]];*/
 
             if (m_tileMap.GetTileNames()[index] == "Tile01"/* || m_tileMap.GetTileNames()[index2] == "Tile01"*/)
             {
                 // Horizontal Wrapping
-                if (prevPlayerIndex % m_tileMap.GetNums()[0] == 0) // X = 0
-                {
-                    // Next Room Code - LEFT TODO
-                    m_playerIndex += m_tileMap.GetNums()[0];
-                }
-                else if(prevPlayerIndex % m_tileMap.GetNums()[0] == m_tileMap.GetNums()[0] - 1) // X = numX
-                {
-                    // Next Room Code - RIGHT TODO
-                    m_playerIndex -= m_tileMap.GetNums()[0];
-                }
-                // Vertical Wrapping
-                // if on bottom, subtract the room size (numY) times the current playerPos divided by the room size (numY)
-            
-                //else if (prevPlayerIndex / m_tileMap.GetNums()[1] == m_tileMap.GetNums()[1]-1) // Y = numY
+                //if (prevPlayerIndex % m_tileMap.GetNums()[0] == 0) // X = 0
                 //{
-                //    m_playerIndex = m_tileMap.GetNums()[1] * (m_tileMap.GetNums()[1]- 1);
+                //    // Next Room Code - LEFT TODO
+                //    m_playerIndex += m_tileMap.GetNums()[0];
                 //}
-                if (prevPlayerIndex / m_tileMap.GetNums()[1] == 0) // Y = 0
-                {
-                    m_playerIndex += (m_tileMap.GetNums()[1] * m_tileMap.GetNums()[1]) - prevPlayerIndex;
-                }
+                //else if(prevPlayerIndex % m_tileMap.GetNums()[0] == m_tileMap.GetNums()[0] - 1) // X = numX
+                //{
+                //    // Next Room Code - RIGHT TODO
+                //    m_playerIndex -= m_tileMap.GetNums()[0];
+                //}
+                //// Vertical Wrapping
+                //// if on bottom, subtract the room size (numY) times the current playerPos divided by the room size (numY)
+            
+                ////else if (prevPlayerIndex / m_tileMap.GetNums()[1] == m_tileMap.GetNums()[1]-1) // Y = numY
+                ////{
+                ////    m_playerIndex = m_tileMap.GetNums()[1] * (m_tileMap.GetNums()[1]- 1);
+                ////}
+                //if (prevPlayerIndex / m_tileMap.GetNums()[1] == 0) // Y = 0
+                //{
+                //    m_playerIndex += (m_tileMap.GetNums()[1] * m_tileMap.GetNums()[1]) - prevPlayerIndex;
+                //}
 
-                if (
-                    prevPlayerIndex % m_tileMap.GetNums()[0] != 0 && prevPlayerIndex % m_tileMap.GetNums()[0] != m_tileMap.GetNums()[0] - 1
-                    &&
-                    prevPlayerIndex / m_tileMap.GetNums()[1] != 0
-                    )
-                {
+                //if (
+                //    prevPlayerIndex % m_tileMap.GetNums()[0] != 0 && prevPlayerIndex % m_tileMap.GetNums()[0] != m_tileMap.GetNums()[0] - 1
+                //    &&
+                //    prevPlayerIndex / m_tileMap.GetNums()[1] != 0
+                //    )
+                //{
                     m_playerIndex = prevPlayerIndex;
 
-                }
+                //}
 
 
 
@@ -164,7 +161,7 @@ namespace nc {
         if (m_playerIndex != prevPlayerIndex)
         {
             system("cls");
-            std::cout << "X: " << m_playerIndex % m_tileMap.GetNums()[0] << " Y: " << m_playerIndex / m_tileMap.GetNums()[1] << " Index: " << m_playerIndex << std::endl;
+            std::cout << "X: " << m_playerIndex.x << " Y: " << m_playerIndex.y << " Index: " << m_playerIndex << std::endl;
         }
 
         //Room Wrapping
@@ -193,13 +190,15 @@ namespace nc {
         /*m_owner->m_transform.position.x = m_tileMap.GetGameObjectTiles().at(playerPos[0])->m_transform.position.x;
         m_owner->m_transform.position.y = m_tileMap.GetGameObjectTiles().at(playerPos[1])->m_transform.position.y;*/
 
-        m_owner->m_transform.position = m_tileMap.GetGameObjectTiles().at(m_playerIndex)->m_transform.position;   //.GetGameObjectTiles().at(m_playerIndex)->m_transform.position;
+        Vector2 testPos = m_tileMap.GetGameObjectTiles()[7][7]->m_transform.position;
+
+        m_owner->m_transform.position = m_tileMap.GetGameObjectTiles()[(int)m_playerIndex.x][(int)m_playerIndex.y]->m_transform.position;  //.GetGameObjectTiles().at(m_playerIndex)->m_transform.position;
     }
 
     void PlayerComponent::LoadMap(const TileMap& tileMap)
     {
         m_tileMap = tileMap;
-        m_playerIndex = (m_tileMap.GetNums()[0]* (m_tileMap.GetNums()[1]) / 2);
+        m_playerIndex = {7, 7};
 
     }
 

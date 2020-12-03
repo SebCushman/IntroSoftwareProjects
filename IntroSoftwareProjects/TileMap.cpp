@@ -31,7 +31,7 @@ namespace nc {
                 gameObject->m_transform.position = (m_start + (nc::Vector2{ x,y } * m_size));
                 //gameObject->m_name = "Tile " + std::to_string(index);
 
-                m_gameObjectTiles.push_back(gameObject);
+                m_gameObjectTiles[(int)x][(int)y] = &gameObject;
                 scene->AddGameObject(gameObject);
             }
         }

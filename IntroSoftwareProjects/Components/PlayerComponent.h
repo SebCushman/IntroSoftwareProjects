@@ -18,13 +18,13 @@ namespace nc {
 		void LoadMap(const TileMap& tileMap);
 		void LoadMap(const Map& map);
 
-		signed int GetPlayerIndex() { return m_playerIndex; }
+		Vector2 GetPlayerIndex() { return m_playerIndex; }
 		TileMap GetTileMap() { return m_tileMap; }
 
 		void OnCollisionEnter(const Event& event);
 		void OnCollisionExit(const Event& event);
 	protected:
-		signed int m_playerIndex{ 0 };
+		Vector2 m_playerIndex{ 0, 0 };
 		TileMap m_tileMap;
 		Map m_map;
 
