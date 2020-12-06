@@ -31,6 +31,8 @@ namespace nc
 
 		bool Use(Character* target);
 
+		friend class UI;
+
 	protected:
 		int m_dHP{ 0 };
 		int m_dMP{ 0 };

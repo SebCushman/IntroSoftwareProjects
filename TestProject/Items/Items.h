@@ -23,6 +23,8 @@ namespace nc
 			return os;
 		}
 
+		friend class UI;
+
 
 	protected:
 		int m_Value{ 0 };

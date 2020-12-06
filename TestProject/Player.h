@@ -1,6 +1,7 @@
 #pragma once
 #include "Character.h"
 #include "Items/Item.h"
+#include <vector>
 
 namespace nc {
 	class Player : public Character {
@@ -13,7 +14,8 @@ namespace nc {
 
 		friend Items;
 		friend Item;
-		friend Game;
+		friend class Game;
+		friend class UI;
 
 
 	protected:
