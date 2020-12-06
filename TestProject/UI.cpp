@@ -17,9 +17,10 @@ namespace nc
             bool isInvalid = true;
 
             do {
-                std::cout << prompt;
+                std::cout << prompt << " ";
                 std::cin >> userInput;
                 userNum = std::stoi(userInput);
+                isInvalid = userNum < min || userNum > max;
 
                 if (isInvalid) 
                 {
@@ -33,63 +34,58 @@ namespace nc
 
     bool UI::promptForBoolean(std::string prompt, std::string trueString, std::string falseString)
     {
-        if (trueString != nullptr && falseString != nullptr && !trueString == "" && !falseString == "" && !trueString.trim().equalsIgnoreCase(falseString.trim())) {
-            trueString = trueString.trim();
-            falseString = falseString.trim();
+        if (trueString != "" && falseString != "" && trueString != falseString) {
             bool isInvalid = true;
             bool isTrue = false;
+            std::string input;
 
             do {
-                std::string input = promptForString(prompt).trim();
-                isInvalid = !input.equalsIgnoreCase(trueString) && !input.equalsIgnoreCase(falseString);
+                std::cout << prompt << " ";
+                std::cin >> input;
+                isInvalid = input != trueString && input != falseString;
                 if (isInvalid) {
-                    std::cout << "You must input either \"" + trueString + "\" or \"" + falseString + "\". Try again" << std::endl;
+                    std::cout << "You must input either \"" << trueString << "\" or \"" << falseString << "\". Try again" << std::endl;
                 }
                 else {
-                    isTrue = input.equalsIgnoreCase(trueString);
+                    isTrue = (input == trueString);
                 }
             } while (isInvalid);
 
             return isTrue;
         }
-        else {
-            throw new IllegalArgumentException("the true string and false string values cannot be nul empty, whitespace-only, or the same");
-        }
     }
 
-    int UI::promptForMenuSelection(std::string options[], bool withQuit, std::string quitString)
+    int UI::promptForMenuSelection(std::vector<std::string> options, bool withQuit, std::string quitString)
     {
-        if(options == nullptr) {
-            options = new std::string[0];
-        }
-
-        if (options->size() == 0 && !withQuit) {
+        if (options.size() == 0 && !withQuit) {
             //throw new IllegalArgumentException("There must be at least one menu option to select");
         }
         else {
             int selection = true;
             int min = withQuit ? 0 : 1;
-            int max = options->size();
-            StringBuilder bob = new StringBuilder("Please, choose one of the following\n\n");
+            int max = options.size();
+            std::string menu;
 
-            for (int i = 0; i < options->size(); ++i) {
-                bob.append(i + 1).append(": ").append(options[i]).append("\n");
+            for (int i = 0; i < options.size(); i++) {
+                menu.append(std::to_string(i + 1));
+                menu.append(": ");
+                menu.append(options[i]).append("\n");
             }
 
-            if (options->size() > 0) {
-                bob.append("\n");
+            if (options.size() > 0) {
+                menu.append("\n");
             }
 
             if (withQuit) {
-                if (quitString == nullptr) {
+                if (quitString == "") {
                     quitString = "Quit";
                 }
 
-                bob.append("0: " + quitString + "\n\n");
+                menu.append("0: " + quitString + "\n\n");
             }
 
-            bob.append("\nSelection: ");
-            int selection = promptForInt(bob.toString(), min, max);
+            menu.append("\nSelection: ");
+            int selection = promptForInt(menu, min, max);
             return selection;
         }
     }
