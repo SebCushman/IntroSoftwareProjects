@@ -190,9 +190,10 @@ namespace nc {
         /*m_owner->m_transform.position.x = m_tileMap.GetGameObjectTiles().at(playerPos[0])->m_transform.position.x;
         m_owner->m_transform.position.y = m_tileMap.GetGameObjectTiles().at(playerPos[1])->m_transform.position.y;*/
 
-        Vector2 testPos = m_tileMap.GetGameObjectTiles()[7][7]->m_transform.position;
+        //Vector2 testPos = m_tileMap.GetGameObjectTiles()[7][7].m_transform.position;//m_tileMap.GetGameObjectTiles()[7][7]->m_transform.position;
 
-        m_owner->m_transform.position = m_tileMap.GetGameObjectTiles()[(int)m_playerIndex.x][(int)m_playerIndex.y]->m_transform.position;  //.GetGameObjectTiles().at(m_playerIndex)->m_transform.position;
+        //m_owner->m_transform.position = m_tileMap.GetGameObjectTiles()[(int)m_playerIndex.x][(int)m_playerIndex.y].m_transform.position;//m_tileMap.GetGameObjectTiles()[(int)m_playerIndex.x][(int)m_playerIndex.y]->m_transform.position;  //.GetGameObjectTiles().at(m_playerIndex)->m_transform.position;
+        m_owner->m_transform.position = m_tileMap.array[(int)m_playerIndex.x][(int)m_playerIndex.y].m_transform.position;//m_tileMap.GetGameObjectTiles()[(int)m_playerIndex.x][(int)m_playerIndex.y].m_transform;
     }
 
     void PlayerComponent::LoadMap(const TileMap& tileMap)
@@ -202,11 +203,11 @@ namespace nc {
 
     }
 
-    void PlayerComponent::LoadMap(const Map& map)
-    {
-        m_map = map;
-        //m_playerIndex = (m_map.GetNums()[0] * (m_map.GetNums()[1]) / 2);
-    }
+    //void PlayerComponent::LoadMap(const Map& map)
+    //{
+    //    //m_map = map;
+    //    //m_playerIndex = (m_map.GetNums()[0] * (m_map.GetNums()[1]) / 2);
+    //}
 
     void PlayerComponent::OnCollisionEnter(const Event& event)
     {

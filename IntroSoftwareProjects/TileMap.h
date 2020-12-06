@@ -3,6 +3,7 @@
 #include "Objects/GameObject.h"
 #include "Math/Vector2.h"
 #include "Engine.h"
+//#include "Map/Map.h"
 
 
 namespace nc {
@@ -20,8 +21,10 @@ namespace nc {
 
 		void SetStart(Vector2 start) { m_start = start; }
 
-		GameObject*** GetGameObjectTiles() { return *m_gameObjectTiles; }
+		//GameObject GetGameObjectTiles() { return m_gameObjectTiles; }
  		
+
+		GameObject(*array)[30] = new GameObject[30][30];
 	protected:
 		/*std::string m_roomName;
 		std::string m_map;*/
@@ -33,7 +36,7 @@ namespace nc {
 		Vector2 m_size;
 		Vector2 m_start;
 
-		GameObject** m_gameObjectTiles[30][30];
+		//int(*array)[5] = new int[10][5];
 
 		std::vector<std::string> m_tileNames;
 		std::vector<int> m_tiles;

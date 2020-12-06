@@ -8,6 +8,7 @@
 
 namespace nc {
 	class Component;
+	class TileMap;
 
 	class GameObject : public Object {
 	public:
@@ -57,6 +58,7 @@ namespace nc {
 		Scene* m_scene{ nullptr };
 
 	protected:
+		int* ptr;
 		std::vector<Component*> m_components;
 		std::list<GameObject*> m_contacts;
 	};

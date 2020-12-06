@@ -9,12 +9,12 @@
 #include "Objects/Scene.h"
 #include "TileMap.h"
 #include "Objects/GameObject.cpp"
-#include "Map/Map.h"
+//#include "Map/Map.h"
 
 nc::Engine engine;
 nc::Scene scene;
 
-void OnPlayerDead(const nc::Event& event) 
+void OnPlayerDead(const nc::Event& event)
 {
     int* pdata = static_cast<int*>(event.data);
     int score = *pdata;

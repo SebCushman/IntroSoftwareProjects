@@ -33,9 +33,6 @@
     <ClCompile Include="Components\PlayerComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="Map\Map.cpp">
-      <Filter>Map</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TileMap.h">
@@ -46,9 +43,6 @@
     </ClInclude>
     <ClInclude Include="Components\PlayerComponent.h">
       <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Map\Map.h">
-      <Filter>Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

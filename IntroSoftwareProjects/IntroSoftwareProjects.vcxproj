@@ -148,7 +148,6 @@
     <ClCompile Include="Components\EnemyComponent.cpp" />
     <ClCompile Include="Components\PlayerComponent.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Map\Map.cpp" />
     <ClCompile Include="TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,7 +158,6 @@
   <ItemGroup>
     <ClInclude Include="Components\EnemyComponent.h" />
     <ClInclude Include="Components\PlayerComponent.h" />
-    <ClInclude Include="Map\Map.h" />
     <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

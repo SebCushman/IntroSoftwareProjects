@@ -29,9 +29,9 @@ namespace nc {
                 float x = static_cast<float>(i % m_numX);
                 float y = static_cast<float>(i / m_numY);
                 gameObject->m_transform.position = (m_start + (nc::Vector2{ x,y } * m_size));
-                //gameObject->m_name = "Tile " + std::to_string(index);
+                //gameObject->m_name = "Tile " + std::to_strig(index);
 
-                m_gameObjectTiles[(int)x][(int)y] = &gameObject;
+                array[(int)x][(int)y] = *gameObject;
                 scene->AddGameObject(gameObject);
             }
         }

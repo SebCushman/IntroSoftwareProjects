@@ -5,6 +5,7 @@
 #include "Components\RenderComponent.h"
 #include "Components\PhysicsComponent.h"
 #include "ObjectFactory.h"
+#include "../../IntroSoftwareProjects/TileMap.h"
 
 namespace nc {
 	GameObject::GameObject(const GameObject& other)
