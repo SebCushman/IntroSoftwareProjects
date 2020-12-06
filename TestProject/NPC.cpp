@@ -29,22 +29,22 @@ void nc::NPC::move()
 
 nc::Vector2 nc::NPC::playerInRange(Skill* skill)
 {
-	Vector2 delta{ 0, 0 };
-	bool isWall{ false };
-	
-	
-	//check 8 directions up to the range of the passed in skill
-	//if player detected, returns an int representing either the direction or directional delta, else it returns 0
-	
-	
-	return delta;
+	//Vector2 delta{ 0, 0 };
+	//bool isWall{ false };
+	//
+	//
+	////check 8 directions up to the range of the passed in skill
+	////if player detected, returns an int representing either the direction or directional delta, else it returns 0
+	//
+	//
+	//return delta;
 }
 
 bool nc::NPC::playerInSight()
 {
-	bool inSight = false;
+	//bool inSight = false;
 
-	//work with sage on detecting distance in his 1D array
+	////work with sage on detecting distance in his 1D array
 
-	return inSight;
+	//return inSight;
 }

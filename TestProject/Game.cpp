@@ -17,7 +17,7 @@ void nc::Game::run()
 	player->currentSkills.push_back(&skill);
 
 	Item healing(5, 0, 0, 25);
-	Item healing(0, 5, 0, 25);
+	Item healing2(0, 5, 0, 25);
 
 	std::cout << enemy->currentHP << std::endl;
 	player->attack(enemy, &skill);
@@ -57,7 +57,7 @@ void nc::Game::takePlayerTurn()
 		selection = ui.promptForMenuSelection(options, false, "");
 		confirmed = ui.promptForBoolean("Are you sure you want to use this ability? ", "yes", "no");
 	} while (!confirmed);
-	player->attack(characters[1], player->currentSkills[selection - 1]);
+	player->attack(enemy, player->currentSkills[selection - 1]);
 }
 
 

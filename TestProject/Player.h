@@ -1,6 +1,7 @@
 #pragma once
 #include "Character.h"
 #include "Items/Item.h"
+#include <vector>
 
 namespace nc {
 	class Player : public Character {

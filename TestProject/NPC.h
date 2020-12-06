@@ -19,8 +19,8 @@ namespace nc {
 
 	protected:
 
-		int xpValue{ 0 };
-		Vector2 attackDelta{ 0, 0 };
+		//int xpValue{ 0 };
+		//Vector2 attackDelta{ 0, 0 };
 		
 	};
 }
