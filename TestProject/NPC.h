@@ -10,15 +10,17 @@ namespace nc {
 		void takeTurn();
 		void move();
 				
-		int playerInRange(Attack skill);
+		Vector2 playerInRange(Attack skill);
 		bool playerInSight();
 
 		friend class Game;
+		friend class UI;
 
 
 	protected:
 
 		int xpValue{ 0 };
+		Vector2 attackDelta{ 0, 0 };
 		
 	};
 }

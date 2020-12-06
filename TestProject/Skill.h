@@ -15,6 +15,8 @@ namespace nc {
 		bool m_isMagic{ false };
 	};
 
+	freind class UI;
+
 	class Skill : public Attack {
 	public:
 		Skill(float accuracy, int minDam, int maxDam, int range, bool isMagic, int maxCharges) : Attack(accuracy, minDam, maxDam, range, isMagic), m_maxCharges{ maxCharges }, m_currentCharges{maxCharges}{}

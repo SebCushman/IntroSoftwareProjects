@@ -3,6 +3,7 @@
 #include "Game.h"
 #include <vector>
 #include <string>
+#include "pch.h"
 
 namespace nc {
 
@@ -24,6 +25,7 @@ namespace nc {
 		friend class Items;
 		friend class Item;
 		friend class Game;
+		friend class UI;
 
 		void attack(Character* target, Attack skill);
 

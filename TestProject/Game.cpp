@@ -6,8 +6,8 @@
 
 void nc::Game::run()
 {
-	Player player{ 30, 5, 4, 8, 7, .2, 1, "fred" };
-	NPC enemy{ 20, 6, 7, 5, 4, .1, 1, "bob" };
+	Player player{ 30, 5, 4, 8, 7, .2, 1, "fox thing" };
+	NPC enemy{ 20, 6, 7, 5, 4, .1, 1, "a bat?" };
 
 	characters.push_back(&player);
 	characters.push_back(&enemy);
@@ -25,4 +25,13 @@ void nc::Game::run()
 	std::cout << enemy.currentHP << std::endl;
 	healing.Use(&enemy);
 	std::cout << enemy.currentHP << std::endl;
+
+
+
 }
+
+void nc::Game::playGame()
+{
+}
+
+
