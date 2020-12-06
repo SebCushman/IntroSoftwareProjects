@@ -13,7 +13,7 @@ namespace nc {
 
 		friend Items;
 		friend Item;
-		friend Game;
+		friend class Game;
 		friend class UI;
 
 

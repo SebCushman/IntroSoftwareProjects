@@ -27,7 +27,7 @@ namespace nc {
 		friend class Game;
 		friend class UI;
 
-		void attack(Character* target, Attack skill);
+		void attack(Character* target, Skill* skill);
 
 		void setOwner(Game* game);
 
@@ -50,8 +50,8 @@ namespace nc {
 		float evasion;
 		int position;
 		std::string name;
-		std::vector<Skill> allSkills{};
-		std::vector<Skill> currentSkills{};
+		std::vector<Skill*> allSkills{};
+		std::vector<Skill*> currentSkills{};
 		int level;
 		int xp;
 		std::vector<int> xpThresh{ 0, 5, 12, 25, 40, 60 };

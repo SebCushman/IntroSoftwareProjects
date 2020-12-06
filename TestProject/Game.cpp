@@ -16,12 +16,13 @@ void nc::Game::run()
 	enemy.setOwner(this);
 
 	Skill skill{ .6, 3, 6, 3, false, 40 };
+	player.currentSkills.push_back(&skill);
 
 	Item healing(5, 0, 0, 25);
 	Item healing(0, 5, 0, 25);
 
 	std::cout << enemy.currentHP << std::endl;
-	player.attack(&enemy, skill);
+	player.attack(&enemy, &skill);
 	std::cout << enemy.currentHP << std::endl;
 	healing.Use(&enemy);
 	std::cout << enemy.currentHP << std::endl;
@@ -30,8 +31,24 @@ void nc::Game::run()
 
 }
 
-void nc::Game::playGame()
+void nc::Game::playGame(Player* player, NPC* enemy)
 {
+	bool playerAlive{ true };
+
+	do {
+		if (isPlayerTurn) {
+			std::cout << "It's your turn! what will you do?" << std::endl;
+			takePlayerTurn(player);
+		}
+		else {
+
+		}
+	} while (playerAlive);
+}
+
+void nc::Game::takePlayerTurn(Player* player)
+{
+	UI.promptForMenuSelection
 }
 
 
