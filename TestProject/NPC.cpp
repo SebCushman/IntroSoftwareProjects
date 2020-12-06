@@ -3,10 +3,10 @@
 void nc::NPC::takeTurn()
 {
 	if (playerInSight) {
-		std::vector<Skill> skills;
+		std::vector<Skill*> skills;
 		std::vector<Vector2> deltas;
-		for (Skill skill : currentSkills) {
-			Vector2 delta = playerInRange(skill);
+		for (Skill* skill : currentSkills) {
+			Vector2 delta = playerInRange(*skill);
 			if (delta.x != 0 || delta.y != 0) {
 				deltas.push_back(delta);
 				skills.push_back(skill);
