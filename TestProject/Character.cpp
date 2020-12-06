@@ -14,6 +14,7 @@ void nc::Character::attack(Character* target, Skill* skill)
 			}
 			int finalDam = round(damage);
 			target->currentHP -= finalDam;
+			std::cout << name << " hit " << target->name << " for " << finalDam << " damage!" << std::endl;
 		}
 	}
 }

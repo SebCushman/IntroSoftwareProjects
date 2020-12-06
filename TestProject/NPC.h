@@ -10,7 +10,7 @@ namespace nc {
 		void takeTurn();
 		void move();
 				
-		Vector2 playerInRange(Attack skill);
+		Vector2 playerInRange(Skill* skill);
 		bool playerInSight();
 
 		friend class Game;
