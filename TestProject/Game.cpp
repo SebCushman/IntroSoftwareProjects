@@ -13,8 +13,39 @@ void nc::Game::run()
 	player->setOwner(this);
 	enemy->setOwner(this);
 
-	Skill skill{ .6, 3, 6, 3, false, 40, "test" };
-	player->currentSkills.push_back(&skill);
+	//Skill skill{ .6, 3, 6, 3, false, 40, "test" };
+	Skill skillBite{ 1, 2, 5, 1, false, 30, "Bite" };//Wolf and Snake get this
+	Skill skillFoxFire1{ .9, 3, 7, 5, true, 20, "Fox Fire, Minor" };
+	Skill skillStaticTackle{ 1, 3, 6, 1, true, 20, "Static Tackle" };
+	
+	//Raven skills
+	Skill skillPeck{ 1, 3, 6, 1, false, 30, "Peck" };
+
+	//Wolf skills
+	Skill skillFlameTackle{ 1, 3, 6, 1, true, 20, "Flame Tackle" };
+	Skill skillFireBlastMinor{.8, 3, 7, 3, true, 15, "Fire Blast, Minor"};
+
+	//Snake skills
+	Skill skillPoisonBite{1, 3, 5, 1, true, 20, "Poison Bite"};
+	Skill skillToxicSpit{ .9, 2, 5, 5, true, 15, "Toxic Spit" };
+	
+	player->currentSkills.push_back(&skillBite);
+	player->currentSkills.push_back(&skillFoxFire1);
+	player->currentSkills.push_back(&skillStaticTackle);
+
+	/*if (enemy->eType == Raven) {
+		enemy->currentSkills.push_back(&skillPeck);
+	}
+	else if (enemy->eType == Wolf) {
+		enemy->currentSkills.push_back(&skillBite);
+		enemy->currentSkills.push_back(&skillFlameTackle);
+		enemy->currentSkills.push_back(&skillFireBlastMinor);
+	}
+	else if (enemy->eType == Snake) {
+		enemy->currentSkills.push_back(&skillBite);
+		enemy->currentSkills.push_back(&skillPoisonBite);
+		enemy->currentSkills.push_back(&skillToxicSpit);
+	}*/
 
 	//Item healing(5, 0, 0, 25);
 	//Item healing2(0, 5, 0, 25);
