@@ -22,14 +22,14 @@ namespace nc
 		{
 			for (int i = 0; i < target->allSkills.size(); i++)
 			{
-				if ((target->allSkills[i].m_currentCharges + m_dHP) >= target->allSkills[i].m_maxCharges)
+				if ((target->currentSkills[i]->m_currentCharges + m_dHP) >= target->currentSkills[i]->m_maxCharges)
 				{
-					target->allSkills[i].m_currentCharges = target->allSkills[i].m_maxCharges;
+					target->currentSkills[i]->m_currentCharges = target->currentSkills[i]->m_maxCharges;
 					return true;
 				}
 				else
 				{
-					target->allSkills[i].m_currentCharges += m_dHP;
+					target->currentSkills[i]->m_currentCharges += m_dHP;
 				}
 			}
 			return false;
