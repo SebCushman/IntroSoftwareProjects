@@ -90,7 +90,7 @@ namespace nc {
             if (diagonal)
                 //UP LEFT
             {
-                m_playerIndex += {1, -1};
+                m_playerIndex += {1, 1};
             }
             //DOWN
             else
