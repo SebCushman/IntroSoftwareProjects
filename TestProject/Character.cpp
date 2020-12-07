@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "Game.h"
 
 
 void nc::Character::attack(Character* target, Skill* skill)
@@ -16,7 +17,18 @@ void nc::Character::attack(Character* target, Skill* skill)
 			target->currentHP -= finalDam;
 			std::cout << name << " hit " << target->name << " for " << finalDam << " damage!" << std::endl;
 		}
+		else {
+			std::cout << name << " missed their target" << std::endl;
+		}
 	}
+	else {
+		std::cout << name << " missed their target" << std::endl;
+	}
+}
+
+void nc::Character::setOwner(Game* game)
+{
+	owner = game;
 }
 
 

@@ -85,7 +85,7 @@ namespace nc
             }
 
             menu.append("\nSelection: ");
-            int selection = promptForInt(menu, min, max);
+            selection = promptForInt(menu, min, max);
             return selection;
         }
     }

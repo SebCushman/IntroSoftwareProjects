@@ -1,4 +1,5 @@
 #include "NPC.h"
+#include "game.h"
 
 void nc::NPC::takeTurn()
 {
@@ -29,6 +30,7 @@ void nc::NPC::move()
 
 nc::Vector2 nc::NPC::playerInRange(Skill* skill)
 {
+	return { 0, 0 };
 	//Vector2 delta{ 0, 0 };
 	//bool isWall{ false };
 	//
@@ -42,6 +44,7 @@ nc::Vector2 nc::NPC::playerInRange(Skill* skill)
 
 bool nc::NPC::playerInSight()
 {
+	return true;
 	//bool inSight = false;
 
 	////work with sage on detecting distance in his 1D array

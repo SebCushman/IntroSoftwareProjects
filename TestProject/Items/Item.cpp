@@ -20,7 +20,7 @@ namespace nc
 		}
 		else if (m_dMP != 0)
 		{
-			for (int i = 0; i < target->allSkills.size(); i++)
+			for (int i = 0; i < target->currentSkills.size(); i++)
 			{
 				if ((target->currentSkills[i]->m_currentCharges + m_dHP) >= target->currentSkills[i]->m_maxCharges)
 				{

@@ -1,14 +1,14 @@
 #pragma once
-#include "pch.h"
 #include "Skill.h"
 #include <vector>
 #include <string>
+#include "Vector2.h"
 
 namespace nc {
 
 	class Character {
 	public:
-		Character(int _maxHP, int _mDefense, int _mAttack, int _pDefense, int _pAttack, float _evasion, int _position, std::string _name) {
+		Character(int _maxHP, int _mDefense, int _mAttack, int _pDefense, int _pAttack, float _evasion, Vector2 _position, std::string _name) {
 			maxHP = _maxHP;
 			currentHP = maxHP;
 			mDefense = _mDefense;
@@ -24,13 +24,10 @@ namespace nc {
 		friend class Items;
 		friend class Item;
 		friend class Game;
-		friend class UI;
-
-		class Game;
 
 		void attack(Character* target, Skill* skill);
 
-		void setOwner(Game* game) { owner = game; }
+		void setOwner(class Game* game);
 
 		inline float random() { return rand() / static_cast<float>(RAND_MAX); }
 
@@ -49,7 +46,7 @@ namespace nc {
 		int pDefense;
 		int pAttack;
 		float evasion;
-		int position;
+		Vector2 position;
 		std::string name;
 		std::vector<Skill*> allSkills{};
 		std::vector<Skill*> currentSkills{};

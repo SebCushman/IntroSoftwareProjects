@@ -4,8 +4,8 @@
 
 void nc::Game::run()
 {
-	player = new Player{ 30, 5, 4, 8, 7, .2, 1, "fox thing" };
-	enemy = new NPC{ 20, 6, 7, 5, 4, .1, 1, "a bat?" };
+	player = new Player{ 30, 5, 4, 8, 7, .2, { 1, 1 }, "fox thing" };
+	enemy = new NPC{ 20, 6, 7, 5, 4, .1, { 1, 1 }, "a bat?"};
 
 	characters.push_back(player);
 	characters.push_back(enemy);
@@ -16,16 +16,16 @@ void nc::Game::run()
 	Skill skill{ .6, 3, 6, 3, false, 40, "test" };
 	player->currentSkills.push_back(&skill);
 
-	Item healing(5, 0, 0, 25);
-	Item healing2(0, 5, 0, 25);
+	//Item healing(5, 0, 0, 25);
+	//Item healing2(0, 5, 0, 25);
 
-	std::cout << enemy->currentHP << std::endl;
-	player->attack(enemy, &skill);
-	std::cout << enemy->currentHP << std::endl;
-	healing.Use(enemy);
-	std::cout << enemy->currentHP << std::endl;
+	//std::cout << enemy->currentHP << std::endl;
+	//player->attack(enemy, &skill);
+	//std::cout << enemy->currentHP << std::endl;
+	//healing.Use(enemy);
+	//std::cout << enemy->currentHP << std::endl;
 
-
+	playGame();
 
 }
 
@@ -50,12 +50,13 @@ void nc::Game::takePlayerTurn()
 	std::vector<std::string> options;
 	for (int i = 0; i < player->currentSkills.size(); i++) {
 		std::string option = (i + 1) + ". " + player->currentSkills[i]->m_name;
+		options.push_back(option);
 	}
 	bool confirmed{ false };
 	int selection;
 	do {
 		selection = ui.promptForMenuSelection(options, false, "");
-		confirmed = ui.promptForBoolean("Are you sure you want to use this ability? ", "yes", "no");
+		confirmed = ui.promptForBoolean("Are you sure you want to use this ability? yes/no: ", "yes", "no");
 	} while (!confirmed);
 	player->attack(enemy, player->currentSkills[selection - 1]);
 }
