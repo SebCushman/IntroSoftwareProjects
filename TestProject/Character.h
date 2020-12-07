@@ -1,9 +1,8 @@
 #pragma once
+#include "pch.h"
 #include "Skill.h"
-#include "Game.h"
 #include <vector>
 #include <string>
-#include "pch.h"
 
 namespace nc {
 
@@ -27,9 +26,11 @@ namespace nc {
 		friend class Game;
 		friend class UI;
 
+		class Game;
+
 		void attack(Character* target, Skill* skill);
 
-		void setOwner(Game* game);
+		void setOwner(Game* game) { owner = game; }
 
 		inline float random() { return rand() / static_cast<float>(RAND_MAX); }
 

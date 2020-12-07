@@ -2,7 +2,6 @@
 #include "Player.h"
 #include "NPC.h"
 #include "UI.h"
-#include <vector>
 
 namespace nc {
 	class Game {
@@ -14,7 +13,6 @@ namespace nc {
 		friend class NPC;
 		friend class Skill;
 		friend class Player;
-
 
 	protected:
 		std::vector<Character*> characters{};

@@ -19,9 +19,5 @@ void nc::Character::attack(Character* target, Skill* skill)
 	}
 }
 
-void nc::Character::setOwner(Game* game)
-{
-	owner = game;
-}
 
 
