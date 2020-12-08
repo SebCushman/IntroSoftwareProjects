@@ -27,7 +27,7 @@ namespace nc
 
 		m_name = "Introductory Software Projects";
 
-		GetSystem<Renderer>()->Create(m_name, 1920, 1080);
+		GetSystem<Renderer>()->Create(m_name, 800, 800);
 
 		return true;
 	}
