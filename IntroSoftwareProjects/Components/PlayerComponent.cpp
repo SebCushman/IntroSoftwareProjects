@@ -113,42 +113,7 @@ namespace nc {
 
             if (m_tileMap.GetTileNames()[index] == "Tile01"/* || m_tileMap.GetTileNames()[index2] == "Tile01"*/)
             {
-                // Horizontal Wrapping
-                //if (prevPlayerIndex % m_tileMap.GetNums()[0] == 0) // X = 0
-                //{
-                //    // Next Room Code - LEFT TODO
-                //    m_playerIndex += m_tileMap.GetNums()[0];
-                //}
-                //else if(prevPlayerIndex % m_tileMap.GetNums()[0] == m_tileMap.GetNums()[0] - 1) // X = numX
-                //{
-                //    // Next Room Code - RIGHT TODO
-                //    m_playerIndex -= m_tileMap.GetNums()[0];
-                //}
-                //// Vertical Wrapping
-                //// if on bottom, subtract the room size (numY) times the current playerPos divided by the room size (numY)
-            
-                ////else if (prevPlayerIndex / m_tileMap.GetNums()[1] == m_tileMap.GetNums()[1]-1) // Y = numY
-                ////{
-                ////    m_playerIndex = m_tileMap.GetNums()[1] * (m_tileMap.GetNums()[1]- 1);
-                ////}
-                //if (prevPlayerIndex / m_tileMap.GetNums()[1] == 0) // Y = 0
-                //{
-                //    m_playerIndex += (m_tileMap.GetNums()[1] * m_tileMap.GetNums()[1]) - prevPlayerIndex;
-                //}
-
-                //if (
-                //    prevPlayerIndex % m_tileMap.GetNums()[0] != 0 && prevPlayerIndex % m_tileMap.GetNums()[0] != m_tileMap.GetNums()[0] - 1
-                //    &&
-                //    prevPlayerIndex / m_tileMap.GetNums()[1] != 0
-                //    )
-                //{
                     m_playerIndex = prevPlayerIndex;
-
-                //}
-
-
-
-
             }
         }
         else
@@ -164,36 +129,7 @@ namespace nc {
             std::cout << "X: " << m_playerIndex.x << " Y: " << m_playerIndex.y << " Index: " << m_playerIndex << std::endl;
         }
 
-        //Room Wrapping
-
-        
-
-        /*if (playerPos[0] >= m_tileMap.GetTiles().size()-1)
-        {
-            playerPos[0] = 0;
-        }
-        else if (playerPos[0] <= 0)
-        {
-            playerPos[0] = m_tileMap.GetTiles().size()-1;
-        }
-
-        if (playerPos[1] >= m_tileMap.GetTiles().size()-1)
-        {
-            playerPos[1] = 0;
-        }
-        else if (playerPos[1] <= 0)
-        {
-            playerPos[1] = m_tileMap.GetTiles().size()-1;
-        }*/
-
-
-        /*m_owner->m_transform.position.x = m_tileMap.GetGameObjectTiles().at(playerPos[0])->m_transform.position.x;
-        m_owner->m_transform.position.y = m_tileMap.GetGameObjectTiles().at(playerPos[1])->m_transform.position.y;*/
-
-        //Vector2 testPos = m_tileMap.GetGameObjectTiles()[7][7].m_transform.position;//m_tileMap.GetGameObjectTiles()[7][7]->m_transform.position;
-
-        //m_owner->m_transform.position = m_tileMap.GetGameObjectTiles()[(int)m_playerIndex.x][(int)m_playerIndex.y].m_transform.position;//m_tileMap.GetGameObjectTiles()[(int)m_playerIndex.x][(int)m_playerIndex.y]->m_transform.position;  //.GetGameObjectTiles().at(m_playerIndex)->m_transform.position;
-        m_owner->m_transform.position = m_tileMap.array[(int)m_playerIndex.x][(int)m_playerIndex.y].m_transform.position;//m_tileMap.GetGameObjectTiles()[(int)m_playerIndex.x][(int)m_playerIndex.y].m_transform;
+        m_owner->m_transform.position = m_tileMap.array[(int)m_playerIndex.x][(int)m_playerIndex.y].m_transform.position;
     }
 
     void PlayerComponent::LoadMap(const TileMap& tileMap)

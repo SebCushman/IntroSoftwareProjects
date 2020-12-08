@@ -70,7 +70,15 @@ namespace nc {
 		}
 		*/
 
-		texture->Draw(m_rect, offsetPosition, m_owner->m_transform.angle, Vector2::one * m_owner->m_transform.scale, m_origin, m_flip);
+		if (m_owner->m_name != "Background")
+		{
+			texture->Draw(m_rect, offsetPosition, m_owner->m_transform.angle, Vector2::one * m_owner->m_transform.scale, m_origin, m_flip);
+		}
+		else
+		{
+			texture->Draw(m_rect, position, m_owner->m_transform.angle, Vector2::one * m_owner->m_transform.scale, m_origin, m_flip);			
+		}
+
 
 		/*if (std::find(objectVec.begin(), objectVec.end(), this) != objectVec.end())
 		{
