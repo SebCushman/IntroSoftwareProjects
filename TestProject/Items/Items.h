@@ -29,5 +29,6 @@ namespace nc
 	protected:
 		int m_Value{ 0 };
 		int m_dMoney{ 0 };
+		std::string m_name;
 	};
 }

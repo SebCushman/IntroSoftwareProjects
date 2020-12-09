@@ -9,12 +9,13 @@ namespace nc
 	{
 	public:
 		Item() {}
-		Item(int HP, int MP, int money, int value)
+		Item(int HP, int MP, /*int money, int value, */std::string name)
 		{
 			m_dHP = HP;
 			m_dMP = MP;
-			m_dMoney = money;
-			m_Value = value;
+			//m_dMoney = money;
+			//m_Value = value;
+			m_name = name;
 		}
 
 		friend std::ostream& operator << (std::ostream& os, Item& item)
@@ -32,6 +33,7 @@ namespace nc
 		bool Use(Character* target);
 
 		friend class UI;
+		friend class Game;
 
 	protected:
 		int m_dHP{ 0 };
