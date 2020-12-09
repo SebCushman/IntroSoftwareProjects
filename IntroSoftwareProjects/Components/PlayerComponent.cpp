@@ -127,6 +127,8 @@ namespace nc {
         {
             system("cls");
             std::cout << "X: " << m_playerIndex.x << " Y: " << m_playerIndex.y << " Index: " << m_playerIndex << std::endl;
+
+            std::cout << Lerp<Vector2>(prevPlayerIndex, m_playerIndex, 1.0f).x << " " << Lerp<Vector2>(prevPlayerIndex, m_playerIndex, 1.0f).y << std::endl;
         }
 
         m_owner->m_transform.position = m_tileMap.array[(int)m_playerIndex.x][(int)m_playerIndex.y].m_transform.position;
